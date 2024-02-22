@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Todolist from "./components/todo-list";
-import AppHeader from "./components/app-header";
-import SearchPanel from "./components/search-panel";
+import Todolist from "./components/todo-list/todo-list";
+import AppHeader from "./components/app-header/app-header";
+import SearchPanel from "./components/search-panel/search-panel";
 
 const App = () => {
   const todoData = [
