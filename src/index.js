@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Todolist from "./components/todo-list/todo-list";
-import AppHeader from "./components/app-header/app-header";
-import SearchPanel from "./components/search-panel/search-panel";
+import Todolist from "./components/todo-list";
+import AppHeader from "./components/app-header";
+import SearchPanel from "./components/search-panel";
+import ItemStatusFilter from "./components/item-status-filter";
+
+import "./index.css";
 
 const App = () => {
   const todoData = [
@@ -13,9 +16,12 @@ const App = () => {
   ];
 
   return (
-    <div>
+    <div className="todo-app">
       <AppHeader />
-      <SearchPanel />
+      <div className="search-panel d-flex">
+        <SearchPanel />
+        <ItemStatusFilter />
+      </div>
       <Todolist todos={todoData} />
     </div>
   );
