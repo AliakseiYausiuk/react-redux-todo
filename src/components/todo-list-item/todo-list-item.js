@@ -47,7 +47,7 @@ export default class TodolistItem extends React.Component {
           className="btn btn-outline-success btn-sm float-right"
           onClick={this.onMarkImportant}
         >
-          <i className="fa fa-exclamation"></i>
+          <i className="bi bi-exclamation-lg"></i>
         </button>
 
         <button
@@ -55,7 +55,7 @@ export default class TodolistItem extends React.Component {
           className="btn btn-outline-danger btn-sm float-right"
           onClick={onDeleted}
         >
-          <i className="fa fa-tras"></i>
+          <i className="bi bi-trash"></i>
         </button>
       </span>
     );
