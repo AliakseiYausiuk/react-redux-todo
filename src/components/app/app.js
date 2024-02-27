@@ -13,11 +13,22 @@ export default class App extends Component {
 
   state = {
     todoData: [
-      { label: "Drink coffee", important: false, id: 1 },
-      { label: "Build React App", important: false, id: 2 },
-      { label: "You are power man", important: true, id: 3 },
+      this.createTodoItem("Drink coffee"),
+      this.createTodoItem("Build React App"),
+      this.createTodoItem("You are power man"),
+      this.createTodoItem("Redux"),
+      this.createTodoItem("TypeScript"),
     ],
   };
+
+  createTodoItem(label) {
+    return {
+      label,
+      important: false,
+      id: this.maxId++,
+      done: false,
+    };
+  }
 
   deleteItem = (id) => {
     this.setState(({ todoData }) => {
@@ -31,11 +42,7 @@ export default class App extends Component {
   };
 
   addItem = (text) => {
-    const newItem = {
-      label: text,
-      important: false,
-      id: this.maxId++,
-    };
+    const newItem = this.createTodoItem(text);
     this.setState(({ todoData }) => {
       return {
         todoData: [...todoData, newItem],
@@ -48,7 +55,19 @@ export default class App extends Component {
   };
 
   onToggleDone = (id) => {
-    console.log("yes", id);
+    this.setState(({ todoData }) => {
+      const idx = todoData.findIndex((el) => el.id === id);
+      const oldItem = todoData[idx];
+      const newItem = { ...oldItem, done: !oldItem.done };
+      const newArray = [
+        ...todoData.slice(0, idx),
+        newItem,
+        ...todoData.slice(idx + 1),
+      ];
+      return {
+        todoData: newArray,
+      };
+    });
   };
 
   render() {
