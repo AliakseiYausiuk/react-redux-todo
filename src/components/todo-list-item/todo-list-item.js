@@ -12,7 +12,7 @@ export default class TodolistItem extends React.Component {
       important,
     } = this.props;
 
-    let classNames = "todo-list-item";
+    let classNames = "todo-list-item d-flex justify-content-between";
 
     if (done) {
       classNames += " done";
@@ -28,21 +28,23 @@ export default class TodolistItem extends React.Component {
           {label}
         </span>
 
-        <button
-          type="button"
-          className="btn btn-outline-success btn-sm float-right"
-          onClick={onToggleImportant}
-        >
-          <i className="bi bi-exclamation-lg"></i>
-        </button>
+        <div>
+          <button
+            type="button"
+            className="btn btn-outline-success btn-sm float-right"
+            onClick={onToggleImportant}
+          >
+            <i className="bi bi-exclamation-lg"></i>
+          </button>
 
-        <button
-          type="button"
-          className="btn btn-outline-danger btn-sm float-right"
-          onClick={onDeleted}
-        >
-          <i className="bi bi-trash"></i>
-        </button>
+          <button
+            type="button"
+            className="btn btn-outline-danger btn-sm float-right"
+            onClick={onDeleted}
+          >
+            <i className="bi bi-trash"></i>
+          </button>
+        </div>
       </span>
     );
   }
